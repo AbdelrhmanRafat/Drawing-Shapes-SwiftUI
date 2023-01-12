@@ -11,14 +11,15 @@ struct ContentView: View {
     var body: some View {
         //Path is struct Containing the outline of 2d Shape.
         Path() { path in
-            path.move(to: CGPoint(x: 20, y: 20))//Move the pointer to be (20,20)Starting Point.
-            path.addLine(to: CGPoint(x: 300, y: 20))// Draw line from (20,20)'Starting point' to (300,20)
-            path.addLine(to: CGPoint(x: 300, y: 200))// Draw line from (3000,20)'last point' to (300,200)
-            path.addLine(to: CGPoint(x: 20, y: 200))
-            // Draw line from (3000,200)'last point' to (20,200)
-            path.closeSubpath()// This Automatically connect last point with the starting point.
+            path.move(to: CGPoint(x: 20, y: 60))// starting point.
+            path.addLine(to: CGPoint(x: 40, y: 60))// Adding Line
+            path.addQuadCurve(to: CGPoint(x: 210, y: 60), control: CGPoint(x: 125, y: 0))// Adding Quad Curve From Point (40,60) to pint (210,60)
+            //Control Point is the point the curvature done.
+             path.addLine(to: CGPoint(x: 230, y: 60))
+            path.addLine(to: CGPoint(x: 230, y: 100))
+            path.addLine(to: CGPoint(x: 20, y: 100))
         }
-        .stroke(Color.green,lineWidth: 10)// Using Stroke to Draw borders.
+        .fill(Color.purple)
     }
 }
 
