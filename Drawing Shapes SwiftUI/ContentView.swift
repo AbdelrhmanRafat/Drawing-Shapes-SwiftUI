@@ -16,8 +16,9 @@ struct ContentView: View {
             path.addLine(to: CGPoint(x: 300, y: 200))// Draw line from (3000,20)'last point' to (300,200)
             path.addLine(to: CGPoint(x: 20, y: 200))
             // Draw line from (3000,200)'last point' to (20,200)
+            path.closeSubpath()// This Automatically connect last point with the starting point.
         }
-        .fill(Color.green) // Fill Shape with Color.
+        .stroke(Color.green,lineWidth: 10)// Using Stroke to Draw borders.
     }
 }
 
